@@ -1,12 +1,19 @@
 {
   "name": "mammalia",
   "version": "0.1.0",
+  "preferGlobal": true,
+  "bin": {
+    "mammalia": "lib/cli.js"
+  },
   "scripts": {
     "compile": "babel -d lib/ src/",
     "lint": "eslint {src,test}/*.es6; true",
-    "test": "mocha test/ -R spec --recursive --compilers es6:babel/register"
+    "test": "mocha test/ -R spec --recursive --compilers es6:babel/register",
+    "prepublish": "npm run compile"
   },
-  "dependencies": {},
+  "dependencies": {
+    "yargs": "^3.26.0"
+  },
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.3",
